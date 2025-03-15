@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-14T21:16:40.719951" rpa="false" schemaversion="5">
+<suite id="s1" name="api viaCep testes" source="D:\Desafio_Neurotech\desafio_viaCep\api_viaCep_testes.robot">
+<kw name="Criar Relatório de Execução" owner="api_viaCep_resources" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.322175" level="INFO">Iniciando os testes da API ViaCEP...</msg>
+<arg>Iniciando os testes da API ViaCEP...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.322046" elapsed="0.000187"/>
+</kw>
+<kw name="Set Log Level" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.322494" level="DEBUG">Log level changed from INFO to TRACE.</msg>
+<msg time="2025-03-14T21:16:41.322527" level="TRACE">Return: 'INFO'</msg>
+<arg>TRACE</arg>
+<doc>Sets the log threshold to the specified level.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.322352" elapsed="0.000221"/>
+</kw>
+<msg time="2025-03-14T21:16:41.322628" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.321297" elapsed="0.001365"/>
+</kw>
+<test id="s1-t1" name="Cenário: Consultar CEP válido" line="17">
+<kw name="Preparar Variáveis" owner="api_viaCep_resources" type="SETUP">
+<msg time="2025-03-14T21:16:41.323182" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.323332" level="TRACE">Arguments: [ 'Preparando variáveis para os testes' ]</msg>
+<msg time="2025-03-14T21:16:41.323382" level="INFO">Preparando variáveis para os testes</msg>
+<msg time="2025-03-14T21:16:41.323412" level="TRACE">Return: None</msg>
+<arg>Preparando variáveis para os testes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.323279" elapsed="0.000162"/>
+</kw>
+<msg time="2025-03-14T21:16:41.323488" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.323074" elapsed="0.000442"/>
+</kw>
+<kw name="Dado que eu tenho um CEP válido" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.323775" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.323911" level="TRACE">Arguments: [ '${CEP_TESTADO}' | '${CEP_VALIDO}' ]</msg>
+<msg time="2025-03-14T21:16:41.324411" level="INFO">${CEP_TESTADO} = 01001000</msg>
+<msg time="2025-03-14T21:16:41.324441" level="TRACE">Return: None</msg>
+<arg>${CEP_TESTADO}</arg>
+<arg>${CEP_VALIDO}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.323868" elapsed="0.000602"/>
+</kw>
+<msg time="2025-03-14T21:16:41.324516" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.323677" elapsed="0.000866"/>
+</kw>
+<kw name="Quando eu faço uma requisição para a API do ViaCEP" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.324828" level="TRACE">Arguments: [  ]</msg>
+<kw name="Consultar CEP" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.325091" level="TRACE">Arguments: [ ${cep}='01001000' ]</msg>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-03-14T21:16:41.325288" level="TRACE">Arguments: [ 'https://viacep.com.br/ws/01001000/json/' ]</msg>
+<msg time="2025-03-14T21:16:41.326977" level="DEBUG">Starting new HTTPS connection (1): viacep.com.br:443</msg>
+<msg time="2025-03-14T21:16:41.644195" level="DEBUG">https://viacep.com.br:443 "GET /ws/01001000/json/ HTTP/1.1" 200 None</msg>
+<msg time="2025-03-14T21:16:41.644497" level="INFO">GET Request : url=https://viacep.com.br/ws/01001000/json/ 
+ path_url=/ws/01001000/json/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-14T21:16:41.644594" level="INFO">GET Response : url=https://viacep.com.br/ws/01001000/json/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 15 Mar 2025 00:16:42 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Expires': 'Sat, 15 Mar 2025 01:16:42 GMT', 'Cache-Control': 'max-age=3600, public', 'Pragma': 'public', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400'} 
+ body={
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "unidade": "",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "estado": "São Paulo",
+  "regiao": "Sudeste",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+} 
+ </msg>
+<msg time="2025-03-14T21:16:41.644654" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-03-14T21:16:41.644748" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.325196" elapsed="0.319579"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-03-14T21:16:41.644853" elapsed="0.000061"/>
+</return>
+<msg time="2025-03-14T21:16:41.645014" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-03-14T21:16:41.645073" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${CEP_TESTADO}</arg>
+<status status="PASS" start="2025-03-14T21:16:41.324954" elapsed="0.320141"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.645281" level="TRACE">Arguments: [ '${RESPONSE}' | '${response}' ]</msg>
+<msg time="2025-03-14T21:16:41.645408" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<msg time="2025-03-14T21:16:41.645435" level="TRACE">Return: None</msg>
+<arg>${RESPONSE}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.645227" elapsed="0.000235"/>
+</kw>
+<msg time="2025-03-14T21:16:41.645507" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.324700" elapsed="0.320834"/>
+</kw>
+<kw name="Então a resposta deve conter os dados corretos do CEP" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.645902" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.646298" level="TRACE">Arguments: [ 'Response Status: 200' ]</msg>
+<msg time="2025-03-14T21:16:41.646351" level="INFO">Response Status: 200</msg>
+<msg time="2025-03-14T21:16:41.646379" level="TRACE">Return: None</msg>
+<arg>Response Status: ${RESPONSE.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.645994" elapsed="0.000413"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.646761" level="TRACE">Arguments: [ 'Response Text: {\n  "cep": "01001-000",\n  "logradouro": "Praça da Sé",\n  "complemento": "lado ímpar",\n  "unidade": "",\n  "bairro": "Sé",\n  "localidade": "São Paulo",\n  "uf": "SP",\n  "estado": "São Paulo",\n  "regiao": "Sudeste",\n  "ibge": "3550308",\n  "gia": "1004",\n  "ddd": "11",\n  "siafi": "7107"\n}' ]</msg>
+<msg time="2025-03-14T21:16:41.646818" level="INFO">Response Text: {
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "unidade": "",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "estado": "São Paulo",
+  "regiao": "Sudeste",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}</msg>
+<msg time="2025-03-14T21:16:41.646851" level="TRACE">Return: None</msg>
+<arg>Response Text: ${RESPONSE.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.646491" elapsed="0.000387"/>
+</kw>
+<kw name="Convert To Dictionary" owner="Collections">
+<msg time="2025-03-14T21:16:41.647337" level="TRACE">Arguments: [ {'cep': '01001-000',
+ 'logradouro': 'Praça da Sé',
+ 'complemento': 'lado ímpar',
+ 'unidade': '',
+ 'bairro': 'Sé',
+ 'localidade': 'São Paulo',
+ 'uf': 'SP',
+ 'estado': 'São Paulo',
+ 'regiao': 'Sudeste',
+ 'ibge': '3550308',
+ 'gia': '1004',
+ 'ddd': '11',
+ 'siafi': '7107'} ]</msg>
+<msg time="2025-03-14T21:16:41.647451" level="TRACE">Return: {'cep': '01001-000',
+ 'logradouro': 'Praça da Sé',
+ 'complemento': 'lado ímpar',
+ 'unidade': '',
+ 'bairro': 'Sé',
+ 'localidade': 'São Paulo',
+ 'uf': 'SP',
+ 'estado': 'São Paulo',
+ 'regiao': 'Sudeste',
+ 'ibge': '3550308',
+ 'gia': '1004',
+ 'ddd': '11',
+ 'siafi': '7107'}</msg>
+<msg time="2025-03-14T21:16:41.647553" level="INFO">${dados} = {'cep': '01001-000', 'logradouro': 'Praça da Sé', 'complemento': 'lado ímpar', 'unidade': '', 'bairro': 'Sé', 'localidade': 'São Paulo', 'uf': 'SP', 'estado': 'São Paulo', 'regiao': 'Sudeste', 'ibge':...</msg>
+<var>${dados}</var>
+<arg>${RESPONSE.json()}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.647067" elapsed="0.000510"/>
+</kw>
+<msg time="2025-03-14T21:16:41.647623" level="TRACE">Return: None</msg>
+<doc>Verifica se a resposta contém o CEP correto</doc>
+<status status="PASS" start="2025-03-14T21:16:41.645770" elapsed="0.001881"/>
+</kw>
+<status status="PASS" start="2025-03-14T21:16:41.322721" elapsed="0.325089"/>
+</test>
+<test id="s1-t2" name="Cenário: Consultar CEP inválido" line="22">
+<kw name="Preparar Variáveis" owner="api_viaCep_resources" type="SETUP">
+<msg time="2025-03-14T21:16:41.648685" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.648819" level="TRACE">Arguments: [ 'Preparando variáveis para os testes' ]</msg>
+<msg time="2025-03-14T21:16:41.648865" level="INFO">Preparando variáveis para os testes</msg>
+<msg time="2025-03-14T21:16:41.648892" level="TRACE">Return: None</msg>
+<arg>Preparando variáveis para os testes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.648769" elapsed="0.000150"/>
+</kw>
+<msg time="2025-03-14T21:16:41.648964" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.648586" elapsed="0.000413"/>
+</kw>
+<kw name="Dado que eu tenho um CEP inválido" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.649239" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.649358" level="TRACE">Arguments: [ '${CEP_TESTADO}' | '${CEP_INVALIDO}' ]</msg>
+<msg time="2025-03-14T21:16:41.649782" level="INFO">${CEP_TESTADO} = 00000000</msg>
+<msg time="2025-03-14T21:16:41.649810" level="TRACE">Return: None</msg>
+<arg>${CEP_TESTADO}</arg>
+<arg>${CEP_INVALIDO}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.649321" elapsed="0.000516"/>
+</kw>
+<msg time="2025-03-14T21:16:41.649881" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.649148" elapsed="0.000760"/>
+</kw>
+<kw name="Quando eu faço uma requisição para a API do ViaCEP" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.650150" level="TRACE">Arguments: [  ]</msg>
+<kw name="Consultar CEP" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.650362" level="TRACE">Arguments: [ ${cep}='00000000' ]</msg>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-03-14T21:16:41.650546" level="TRACE">Arguments: [ 'https://viacep.com.br/ws/00000000/json/' ]</msg>
+<msg time="2025-03-14T21:16:41.651425" level="DEBUG">Starting new HTTPS connection (1): viacep.com.br:443</msg>
+<msg time="2025-03-14T21:16:41.977279" level="DEBUG">https://viacep.com.br:443 "GET /ws/00000000/json/ HTTP/1.1" 200 None</msg>
+<msg time="2025-03-14T21:16:41.977524" level="INFO">GET Request : url=https://viacep.com.br/ws/00000000/json/ 
+ path_url=/ws/00000000/json/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-14T21:16:41.977577" level="INFO">GET Response : url=https://viacep.com.br/ws/00000000/json/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 15 Mar 2025 00:16:42 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type, X-Request-With, X-Requested-By', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Max-Age': '86400', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body={
+  "erro": "true"
+} 
+ </msg>
+<msg time="2025-03-14T21:16:41.977780" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-03-14T21:16:41.977866" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.650457" elapsed="0.327432"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-03-14T21:16:41.977962" elapsed="0.000055"/>
+</return>
+<msg time="2025-03-14T21:16:41.978108" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg time="2025-03-14T21:16:41.978156" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${CEP_TESTADO}</arg>
+<status status="PASS" start="2025-03-14T21:16:41.650244" elapsed="0.327931"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.978342" level="TRACE">Arguments: [ '${RESPONSE}' | '${response}' ]</msg>
+<msg time="2025-03-14T21:16:41.978452" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<msg time="2025-03-14T21:16:41.978476" level="TRACE">Return: None</msg>
+<arg>${RESPONSE}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.978293" elapsed="0.000208"/>
+</kw>
+<msg time="2025-03-14T21:16:41.978541" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.650057" elapsed="0.328509"/>
+</kw>
+<kw name="Então a resposta deve indicar erro" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.978908" level="TRACE">Arguments: [  ]</msg>
+<kw name="Convert To Dictionary" owner="Collections">
+<msg time="2025-03-14T21:16:41.979276" level="TRACE">Arguments: [ {'erro': 'true'} ]</msg>
+<msg time="2025-03-14T21:16:41.979333" level="TRACE">Return: {'erro': 'true'}</msg>
+<msg time="2025-03-14T21:16:41.979381" level="INFO">${dados} = {'erro': 'true'}</msg>
+<var>${dados}</var>
+<arg>${RESPONSE.json()}</arg>
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.978991" elapsed="0.000410"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.979552" level="TRACE">Arguments: [ {'erro': 'true'} | "{'erro': 'true'}" ]</msg>
+<msg time="2025-03-14T21:16:41.979608" level="INFO">Argument types are:
+&lt;class 'dict'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2025-03-14T21:16:41.979640" level="TRACE">Return: None</msg>
+<arg>${dados}</arg>
+<arg>{'erro': 'true'}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.979482" elapsed="0.000184"/>
+</kw>
+<msg time="2025-03-14T21:16:41.979706" level="TRACE">Return: None</msg>
+<doc>Verifica se a API retorna um erro ao consultar um CEP inválido</doc>
+<status status="PASS" start="2025-03-14T21:16:41.978786" elapsed="0.000945"/>
+</kw>
+<status status="PASS" start="2025-03-14T21:16:41.648306" elapsed="0.331576"/>
+</test>
+<test id="s1-t3" name="Cenário: Consultar CEP com formato incorreto (menos de 8 dígitos)" line="27">
+<kw name="Preparar Variáveis" owner="api_viaCep_resources" type="SETUP">
+<msg time="2025-03-14T21:16:41.980782" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.980911" level="TRACE">Arguments: [ 'Preparando variáveis para os testes' ]</msg>
+<msg time="2025-03-14T21:16:41.980954" level="INFO">Preparando variáveis para os testes</msg>
+<msg time="2025-03-14T21:16:41.980980" level="TRACE">Return: None</msg>
+<arg>Preparando variáveis para os testes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.980861" elapsed="0.000146"/>
+</kw>
+<msg time="2025-03-14T21:16:41.981047" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.980607" elapsed="0.000465"/>
+</kw>
+<kw name="Dado que eu tenho um CEP com formato incorreto" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.981292" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.981402" level="TRACE">Arguments: [ '${CEP_TESTADO}' | '${CEP_FORMATO_INCORRETO}' ]</msg>
+<msg time="2025-03-14T21:16:41.981791" level="INFO">${CEP_TESTADO} = 1234</msg>
+<msg time="2025-03-14T21:16:41.981817" level="TRACE">Return: None</msg>
+<arg>${CEP_TESTADO}</arg>
+<arg>${CEP_FORMATO_INCORRETO}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.981368" elapsed="0.000473"/>
+</kw>
+<msg time="2025-03-14T21:16:41.981885" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.981209" elapsed="0.000700"/>
+</kw>
+<kw name="Quando eu faço uma requisição para a API do ViaCEP com formato incorreto ou caracteres a menos" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.982141" level="TRACE">Arguments: [  ]</msg>
+<kw name="Consultar CEP invalido" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:41.982336" level="TRACE">Arguments: [ ${cep}='1234' ]</msg>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<msg time="2025-03-14T21:16:41.982459" level="TRACE">Arguments: [ 'GET' | '${VIA_CEP_URL}${cep}/json/' ]</msg>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-03-14T21:16:41.982618" level="TRACE">Arguments: [ 'https://viacep.com.br/ws/1234/json/' ]</msg>
+<msg time="2025-03-14T21:16:41.983143" level="DEBUG">Starting new HTTPS connection (1): viacep.com.br:443</msg>
+<msg time="2025-03-14T21:16:42.297014" level="DEBUG">https://viacep.com.br:443 "GET /ws/1234/json/ HTTP/1.1" 400 494</msg>
+<msg time="2025-03-14T21:16:42.297356" level="INFO">GET Request : url=https://viacep.com.br/ws/1234/json/ 
+ path_url=/ws/1234/json/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-14T21:16:42.297407" level="INFO">GET Response : url=https://viacep.com.br/ws/1234/json/ 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 15 Mar 2025 00:16:43 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-03-14T21:16:42.297543" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/</msg>
+<msg time="2025-03-14T21:16:42.299080" level="DEBUG">Traceback (most recent call last):
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\utils.py", line 141, in decorator
+    return func(*args, **kwargs)
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\RequestsKeywords.py", line 193, in session_less_get
+    self._check_status(expected_status, response, msg)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\SessionKeywords.py", line 570, in _check_status
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/</msg>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Sends a GET request.</doc>
+<status status="FAIL" start="2025-03-14T21:16:41.982547" elapsed="0.316573">HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/</status>
+</kw>
+<msg time="2025-03-14T21:16:42.299185" level="TRACE">Return: ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/')</msg>
+<msg time="2025-03-14T21:16:42.299276" level="INFO">${response} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/')</msg>
+<var>${response}</var>
+<arg>GET</arg>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-03-14T21:16:41.982426" elapsed="0.316872"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-03-14T21:16:42.299353" elapsed="0.000039"/>
+</return>
+<msg time="2025-03-14T21:16:42.299475" level="TRACE">Return: ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/')</msg>
+<msg time="2025-03-14T21:16:42.299536" level="INFO">${response} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/')</msg>
+<var>${response}</var>
+<arg>${CEP_TESTADO}</arg>
+<status status="PASS" start="2025-03-14T21:16:41.982227" elapsed="0.317329"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.299726" level="TRACE">Arguments: [ '${RESPONSE}' | '${response}' ]</msg>
+<msg time="2025-03-14T21:16:42.299839" level="INFO">${RESPONSE} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/')</msg>
+<msg time="2025-03-14T21:16:42.299864" level="TRACE">Return: None</msg>
+<arg>${RESPONSE}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.299673" elapsed="0.000218"/>
+</kw>
+<msg time="2025-03-14T21:16:42.299934" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:41.982049" elapsed="0.317910"/>
+</kw>
+<kw name="Então a resposta deve indicar erro de formato" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.300301" level="TRACE">Arguments: [  ]</msg>
+<kw name="Convert Json To String" owner="JSONLibrary">
+<msg time="2025-03-14T21:16:42.300455" level="TRACE">Arguments: [ ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/') ]</msg>
+<msg time="2025-03-14T21:16:42.300527" level="TRACE">Return: '["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/"]'</msg>
+<msg time="2025-03-14T21:16:42.300570" level="INFO">${RES_BODDY} = ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/"]</msg>
+<var>${RES_BODDY}</var>
+<arg>${response}</arg>
+<doc>Convert JSON object to string</doc>
+<status status="PASS" start="2025-03-14T21:16:42.300390" elapsed="0.000199"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.300785" level="TRACE">Arguments: [ 'Response body: ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/"]' | 'INFO' ]</msg>
+<msg time="2025-03-14T21:16:42.300832" level="INFO">Response body: ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/"]</msg>
+<msg time="2025-03-14T21:16:42.300856" level="TRACE">Return: None</msg>
+<arg>Response body: ${RES_BODDY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.300669" elapsed="0.000211"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.301020" level="TRACE">Arguments: [ '["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/1234/json/"]' | '400' ]</msg>
+<msg time="2025-03-14T21:16:42.301064" level="TRACE">Return: None</msg>
+<arg>${RES_BODDY}</arg>
+<arg>400</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.300955" elapsed="0.000133"/>
+</kw>
+<msg time="2025-03-14T21:16:42.301127" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.300181" elapsed="0.000969"/>
+</kw>
+<status status="PASS" start="2025-03-14T21:16:41.980336" elapsed="0.320950"/>
+</test>
+<test id="s1-t4" name="Cenário: Consultar CEP com mais de 8 dígitos" line="32">
+<kw name="Preparar Variáveis" owner="api_viaCep_resources" type="SETUP">
+<msg time="2025-03-14T21:16:42.302065" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.302186" level="TRACE">Arguments: [ 'Preparando variáveis para os testes' ]</msg>
+<msg time="2025-03-14T21:16:42.302227" level="INFO">Preparando variáveis para os testes</msg>
+<msg time="2025-03-14T21:16:42.302251" level="TRACE">Return: None</msg>
+<arg>Preparando variáveis para os testes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.302140" elapsed="0.000136"/>
+</kw>
+<msg time="2025-03-14T21:16:42.302315" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.301976" elapsed="0.000364"/>
+</kw>
+<kw name="Dado que eu tenho um CEP maior que o padrão" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.302562" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.302669" level="TRACE">Arguments: [ '${CEP_TESTADO}' | '${CEP_LONGO}' ]</msg>
+<msg time="2025-03-14T21:16:42.303074" level="INFO">${CEP_TESTADO} = 123456789</msg>
+<msg time="2025-03-14T21:16:42.303099" level="TRACE">Return: None</msg>
+<arg>${CEP_TESTADO}</arg>
+<arg>${CEP_LONGO}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.302636" elapsed="0.000489"/>
+</kw>
+<msg time="2025-03-14T21:16:42.303166" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.302477" elapsed="0.000713"/>
+</kw>
+<kw name="Quando eu faço uma requisição para a API do ViaCEP com formato incorreto ou caracteres a menos" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.303439" level="TRACE">Arguments: [  ]</msg>
+<kw name="Consultar CEP invalido" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.303671" level="TRACE">Arguments: [ ${cep}='123456789' ]</msg>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.303808" level="TRACE">Arguments: [ 'GET' | '${VIA_CEP_URL}${cep}/json/' ]</msg>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-03-14T21:16:42.304089" level="TRACE">Arguments: [ 'https://viacep.com.br/ws/123456789/json/' ]</msg>
+<msg time="2025-03-14T21:16:42.304645" level="DEBUG">Starting new HTTPS connection (1): viacep.com.br:443</msg>
+<msg time="2025-03-14T21:16:42.617687" level="DEBUG">https://viacep.com.br:443 "GET /ws/123456789/json/ HTTP/1.1" 400 494</msg>
+<msg time="2025-03-14T21:16:42.618054" level="INFO">GET Request : url=https://viacep.com.br/ws/123456789/json/ 
+ path_url=/ws/123456789/json/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-14T21:16:42.618102" level="INFO">GET Response : url=https://viacep.com.br/ws/123456789/json/ 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 15 Mar 2025 00:16:43 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-03-14T21:16:42.618218" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/</msg>
+<msg time="2025-03-14T21:16:42.618837" level="DEBUG">Traceback (most recent call last):
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\utils.py", line 141, in decorator
+    return func(*args, **kwargs)
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\RequestsKeywords.py", line 193, in session_less_get
+    self._check_status(expected_status, response, msg)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\SessionKeywords.py", line 570, in _check_status
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/</msg>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Sends a GET request.</doc>
+<status status="FAIL" start="2025-03-14T21:16:42.303904" elapsed="0.314969">HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/</status>
+</kw>
+<msg time="2025-03-14T21:16:42.618935" level="TRACE">Return: ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/')</msg>
+<msg time="2025-03-14T21:16:42.619021" level="INFO">${response} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/')</msg>
+<var>${response}</var>
+<arg>GET</arg>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.303771" elapsed="0.315270"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-03-14T21:16:42.619102" elapsed="0.000035"/>
+</return>
+<msg time="2025-03-14T21:16:42.619222" level="TRACE">Return: ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/')</msg>
+<msg time="2025-03-14T21:16:42.619281" level="INFO">${response} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/')</msg>
+<var>${response}</var>
+<arg>${CEP_TESTADO}</arg>
+<status status="PASS" start="2025-03-14T21:16:42.303546" elapsed="0.315754"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.619474" level="TRACE">Arguments: [ '${RESPONSE}' | '${response}' ]</msg>
+<msg time="2025-03-14T21:16:42.619667" level="INFO">${RESPONSE} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/')</msg>
+<msg time="2025-03-14T21:16:42.619694" level="TRACE">Return: None</msg>
+<arg>${RESPONSE}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.619422" elapsed="0.000298"/>
+</kw>
+<msg time="2025-03-14T21:16:42.619763" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.303326" elapsed="0.316462"/>
+</kw>
+<kw name="Então a resposta deve indicar erro de formato" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.620131" level="TRACE">Arguments: [  ]</msg>
+<kw name="Convert Json To String" owner="JSONLibrary">
+<msg time="2025-03-14T21:16:42.620276" level="TRACE">Arguments: [ ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/') ]</msg>
+<msg time="2025-03-14T21:16:42.620349" level="TRACE">Return: '["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/"]'</msg>
+<msg time="2025-03-14T21:16:42.620394" level="INFO">${RES_BODDY} = ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/"]</msg>
+<var>${RES_BODDY}</var>
+<arg>${response}</arg>
+<doc>Convert JSON object to string</doc>
+<status status="PASS" start="2025-03-14T21:16:42.620215" elapsed="0.000198"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.620581" level="TRACE">Arguments: [ 'Response body: ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/"]' | 'INFO' ]</msg>
+<msg time="2025-03-14T21:16:42.620627" level="INFO">Response body: ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/"]</msg>
+<msg time="2025-03-14T21:16:42.620654" level="TRACE">Return: None</msg>
+<arg>Response body: ${RES_BODDY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.620495" elapsed="0.000184"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.620820" level="TRACE">Arguments: [ '["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/123456789/json/"]' | '400' ]</msg>
+<msg time="2025-03-14T21:16:42.620864" level="TRACE">Return: None</msg>
+<arg>${RES_BODDY}</arg>
+<arg>400</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.620756" elapsed="0.000132"/>
+</kw>
+<msg time="2025-03-14T21:16:42.620926" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.620008" elapsed="0.000942"/>
+</kw>
+<status status="PASS" start="2025-03-14T21:16:42.301719" elapsed="0.319374"/>
+</test>
+<test id="s1-t5" name="Cenário: Consultar CEP com caracteres especiais" line="37">
+<kw name="Preparar Variáveis" owner="api_viaCep_resources" type="SETUP">
+<msg time="2025-03-14T21:16:42.621999" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.622169" level="TRACE">Arguments: [ 'Preparando variáveis para os testes' ]</msg>
+<msg time="2025-03-14T21:16:42.622228" level="INFO">Preparando variáveis para os testes</msg>
+<msg time="2025-03-14T21:16:42.622266" level="TRACE">Return: None</msg>
+<arg>Preparando variáveis para os testes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.622105" elapsed="0.000196"/>
+</kw>
+<msg time="2025-03-14T21:16:42.622353" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.621874" elapsed="0.000505"/>
+</kw>
+<kw name="Dado que eu tenho um CEP contendo caracteres especiais" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.622662" level="TRACE">Arguments: [  ]</msg>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.622785" level="TRACE">Arguments: [ '${CEP_TESTADO}' | '${CEP_CARACTERES_ESPECIAIS}' ]</msg>
+<msg time="2025-03-14T21:16:42.623242" level="INFO">${CEP_TESTADO} = 01A01-010</msg>
+<msg time="2025-03-14T21:16:42.623270" level="TRACE">Return: None</msg>
+<arg>${CEP_TESTADO}</arg>
+<arg>${CEP_CARACTERES_ESPECIAIS}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.622749" elapsed="0.000548"/>
+</kw>
+<msg time="2025-03-14T21:16:42.623340" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.622556" elapsed="0.000808"/>
+</kw>
+<kw name="Quando eu faço uma requisição para a API do ViaCEP com formato incorreto ou caracteres a menos" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.623618" level="TRACE">Arguments: [  ]</msg>
+<kw name="Consultar CEP invalido" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.623835" level="TRACE">Arguments: [ ${cep}='01A01-010' ]</msg>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.623975" level="TRACE">Arguments: [ 'GET' | '${VIA_CEP_URL}${cep}/json/' ]</msg>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-03-14T21:16:42.624140" level="TRACE">Arguments: [ 'https://viacep.com.br/ws/01A01-010/json/' ]</msg>
+<msg time="2025-03-14T21:16:42.624728" level="DEBUG">Starting new HTTPS connection (1): viacep.com.br:443</msg>
+<msg time="2025-03-14T21:16:42.940574" level="DEBUG">https://viacep.com.br:443 "GET /ws/01A01-010/json/ HTTP/1.1" 400 494</msg>
+<msg time="2025-03-14T21:16:42.940923" level="INFO">GET Request : url=https://viacep.com.br/ws/01A01-010/json/ 
+ path_url=/ws/01A01-010/json/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-03-14T21:16:42.940974" level="INFO">GET Response : url=https://viacep.com.br/ws/01A01-010/json/ 
+ status=400, reason=Bad Request 
+ headers={'Server': 'nginx/1.22.0', 'Date': 'Sat, 15 Mar 2025 00:16:43 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '494', 'Connection': 'close', 'ETag': '"6242f812-1ee"', 'Strict-Transport-Security': 'max-age=63072000'} 
+ body=&lt;!DOCTYPE HTML&gt;
+&lt;html lang="pt-br"&gt;
+
+&lt;head&gt;
+  &lt;title&gt;ViaCEP 400&lt;/title&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;style type="text/css"&gt;
+      h1 {
+          color: #555;
+          text-align: center;
+          font-size: 4em;
+      }
+      h2, h3 {
+          color: #666;
+          text-align: center;
+          font-size: 3em;
+      }
+      h3 {
+          font-size: 1.5em;
+      }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Http 400&lt;/h1&gt;
+    &lt;h3&gt;Verifique a URL&lt;/h3&gt;
+    &lt;h3&gt;{Bad Request}&lt;/h3&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-03-14T21:16:42.941083" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/</msg>
+<msg time="2025-03-14T21:16:42.941702" level="DEBUG">Traceback (most recent call last):
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\utils.py", line 141, in decorator
+    return func(*args, **kwargs)
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\RequestsKeywords.py", line 193, in session_less_get
+    self._check_status(expected_status, response, msg)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\RequestsLibrary\SessionKeywords.py", line 570, in _check_status
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\joao_\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/</msg>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Sends a GET request.</doc>
+<status status="FAIL" start="2025-03-14T21:16:42.624064" elapsed="0.317751">HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/</status>
+</kw>
+<msg time="2025-03-14T21:16:42.941886" level="TRACE">Return: ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/')</msg>
+<msg time="2025-03-14T21:16:42.941978" level="INFO">${response} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/')</msg>
+<var>${response}</var>
+<arg>GET</arg>
+<arg>${VIA_CEP_URL}${cep}/json/</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.623936" elapsed="0.318064"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-03-14T21:16:42.942058" elapsed="0.000038"/>
+</return>
+<msg time="2025-03-14T21:16:42.942185" level="TRACE">Return: ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/')</msg>
+<msg time="2025-03-14T21:16:42.942247" level="INFO">${response} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/')</msg>
+<var>${response}</var>
+<arg>${CEP_TESTADO}</arg>
+<status status="PASS" start="2025-03-14T21:16:42.623715" elapsed="0.318556"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.942453" level="TRACE">Arguments: [ '${RESPONSE}' | '${response}' ]</msg>
+<msg time="2025-03-14T21:16:42.942570" level="INFO">${RESPONSE} = ('FAIL', 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/')</msg>
+<msg time="2025-03-14T21:16:42.942595" level="TRACE">Return: None</msg>
+<arg>${RESPONSE}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.942396" elapsed="0.000225"/>
+</kw>
+<msg time="2025-03-14T21:16:42.942667" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.623520" elapsed="0.319176"/>
+</kw>
+<kw name="Então a resposta deve indicar erro de formato" owner="api_viaCep_resources">
+<msg time="2025-03-14T21:16:42.943069" level="TRACE">Arguments: [  ]</msg>
+<kw name="Convert Json To String" owner="JSONLibrary">
+<msg time="2025-03-14T21:16:42.943228" level="TRACE">Arguments: [ ('FAIL',
+ 'HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/') ]</msg>
+<msg time="2025-03-14T21:16:42.943305" level="TRACE">Return: '["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/"]'</msg>
+<msg time="2025-03-14T21:16:42.943351" level="INFO">${RES_BODDY} = ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/"]</msg>
+<var>${RES_BODDY}</var>
+<arg>${response}</arg>
+<doc>Convert JSON object to string</doc>
+<status status="PASS" start="2025-03-14T21:16:42.943162" elapsed="0.000211"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.943546" level="TRACE">Arguments: [ 'Response body: ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/"]' | 'INFO' ]</msg>
+<msg time="2025-03-14T21:16:42.943599" level="INFO">Response body: ["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/"]</msg>
+<msg time="2025-03-14T21:16:42.943626" level="TRACE">Return: None</msg>
+<arg>Response body: ${RES_BODDY}</arg>
+<arg>INFO</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.943457" elapsed="0.000199"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.943811" level="TRACE">Arguments: [ '["FAIL", "HTTPError: 400 Client Error: Bad Request for url: https://viacep.com.br/ws/01A01-010/json/"]' | '400' ]</msg>
+<msg time="2025-03-14T21:16:42.943858" level="TRACE">Return: None</msg>
+<arg>${RES_BODDY}</arg>
+<arg>400</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.943741" elapsed="0.000142"/>
+</kw>
+<msg time="2025-03-14T21:16:42.943925" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.942927" elapsed="0.001024"/>
+</kw>
+<status status="PASS" start="2025-03-14T21:16:42.621593" elapsed="0.322512"/>
+</test>
+<kw name="Finalizar Teste" owner="api_viaCep_resources" type="TEARDOWN">
+<msg time="2025-03-14T21:16:42.944864" level="TRACE">Arguments: [  ]</msg>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-03-14T21:16:42.945001" level="TRACE">Arguments: [ 'Teste concluído.' ]</msg>
+<msg time="2025-03-14T21:16:42.945051" level="INFO">Teste concluído.</msg>
+<msg time="2025-03-14T21:16:42.945081" level="TRACE">Return: None</msg>
+<arg>Teste concluído.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-03-14T21:16:42.944950" elapsed="0.000160"/>
+</kw>
+<msg time="2025-03-14T21:16:42.945154" level="TRACE">Return: None</msg>
+<status status="PASS" start="2025-03-14T21:16:42.944799" elapsed="0.000382"/>
+</kw>
+<status status="PASS" start="2025-03-14T21:16:40.721566" elapsed="2.223645"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="api viaCep testes" id="s1" pass="5" fail="0" skip="0">api viaCep testes</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-03-14T21:16:41.095199" level="WARN">Error in file 'D:\Desafio_Neurotech\desafio_viaCep\api_viaCep_resources.robot' on line 35: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-03-14T21:16:41.095533" level="WARN">Error in file 'D:\Desafio_Neurotech\desafio_viaCep\api_viaCep_resources.robot' on line 41: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
